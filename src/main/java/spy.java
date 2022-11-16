@@ -1,4 +1,4 @@
-public class spy<T> extends encryption implements spyInterface{
+public class spy<T> extends bitshift implements spyInterface{
     boolean state;
     fieldBase base;
     int key;

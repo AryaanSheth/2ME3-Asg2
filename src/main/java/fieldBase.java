@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class fieldBase<T> extends encryption implements fieldBaseInterface{
+public class fieldBase<T> extends bitshift implements fieldBaseInterface{
     int key;
     private final ArrayList<spyInterface> spy = new ArrayList<>();
 
@@ -9,13 +9,13 @@ public class fieldBase<T> extends encryption implements fieldBaseInterface{
     //constructor
     fieldBase(){
         homeBase.getInstance().addFieldBase(this);
-        key = homeBase.getInstance().getKey();
+        getKey();
     }
 
 
 
     public int getKey() {
-        key = homeBase.getKey();
+        key = homeBase.getInstance().getKey();
         return key;
     }
 
@@ -25,13 +25,13 @@ public class fieldBase<T> extends encryption implements fieldBaseInterface{
     public void goDark() {
         System.out.println("Going dark");
         // remove from homeBase arrayList
-        homeBase.removeFieldBase(this);
+        homeBase.getInstance().removeFieldBase(this);
     }
     @Override
     public void goLive() {
         System.out.println("Going live");
         // add to homeBase arrayList
-        homeBase.addFieldBase(this);
+        homeBase.getInstance().addFieldBase(this);
     }
 
 
@@ -48,12 +48,12 @@ public class fieldBase<T> extends encryption implements fieldBaseInterface{
         getKey(); // update key
         if (target instanceof homeBase){
             System.out.println("Sending message to Home Base");
-            ((homeBase) target).recieveMessage(encrypt(message, key));
+            ((homeBase<?>) target).recieveMessage(encrypt(message, key));
         }
         // send message to a specific instance of a spy
         else if (target instanceof spyInterface){
             System.out.println("Sending message to spy");
-            ((spyInterface) target).recieveMessage(encrypt(message, key));
+            ((spyInterface<?>) target).recieveMessage(encrypt(message, key));
         }
         else{
             throw new Exception("Invalid target");
