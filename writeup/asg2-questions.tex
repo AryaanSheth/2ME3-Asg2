@@ -11,14 +11,12 @@
 \begin{document}
     \maketitle
     \newpage
-    \tableofcontents
-    \newpage
 
     \part{}
-    \section{UML Diagram of Design}
+    \section*{UML Diagram of Design}
         \includegraphics[scale=.25]{part1_uml}
 
-    \section{Design Patterns}
+    \section*{Design Patterns}
         \subsection*{Encryption}
             For the multiple encryption schemes that our design needs to support, I used the \textbf{Strategy}
             pattern as it allowed me to easily swap in and out different behaviors for the encryption schemes.
@@ -42,7 +40,7 @@
             could use the \textbf{factory} design pattern. This would allow us to create multiple 
             instances of the home base that come pre-packaged with field bases and spies. To achieve
             this we would create a wrapper class of the current structure and apply the factory pattern on that. 
-    \section{Design Principals}
+    \section*{Design Principals}
         \subsection*{DRY}
             My design follows the DRY principle as I use interfaces, abstract classes, and generics to reduce 
             the amount of code that needs to be re-written in the code. For example, the 
@@ -53,20 +51,26 @@
             and functions to classes via the use of the interfaces and abstract classes that encompass the structure. 
             For example, if we wanted to add a new type of spy that can do something different, we can simply create a 
             new spy that extends the spy class and implement the new methods that are needed.
-        \subsection*{Liskov Substitution Principal}
-            My design follows the Liskov substitution principal as the classes are all built from interfaces and abstract classes
-            which allows for the classes to be easily substituted with other classes that implement the same interface. 
-            For example, if we wanted to add a new type of spy that can do something different, we can simply create a 
-            new spy that extends the spy class and implement the new methods that are needed.
+        \subsection*{Design For Interfaces}
+            My design follows the design for interfaces principal as all the classes are built from interfaces and their structure is
+            dictated by the interface. For example, the spies and field bases are built from the spy and field base interfaces
+            which dictate the structure of the classes such as their goLive and goDark methods. 
 
-    \section{Design Intention}
+    \section*{Design Intention}
         My design intention is to create a modular design that allows for easy expansion on existing classes via child classes or using 
         a design pattern such as factory to create multiple instances of the home base design. This is done by using interfaces
-        to create a structure that can be easily expanded on and we can apply Liskov substitution to substitute the classes with other classes
-        that follow the same interface design. With the use of the observer pattern, we can easily add new classes and chain them together to create a new 
+        to create a structure that can be easily expanded on. With the use of the observer pattern, we can easily add new classes and chain them together to create a new 
         subsystem from field bases and agent and expand the overall structure. This also enables the messaging system to work as it allows for the classes to
          be able to send messages to each other and the home base and be notified of them. 
 
     \part{}
+    \section*{UML Diagram of New Design}
+        \includegraphics[scale=.24]{part2_uml}
+    
+    \section*{Modification Of Program}
+        With the updated UML, the new encryption interface is an interface between the actual interface and the concrete
+        homeBase class. It extends the functionality of the current encryption logic and allows for the home base to be able to
+        multiple layers of encryption. This is done by updating the call methods in the homeBase to call the new 
+        encryption function which will give it access to adding multiple encryption layers using an ArrayList. 
         
 \end{document}

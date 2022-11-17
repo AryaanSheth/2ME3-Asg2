@@ -112,12 +112,6 @@ OUTPUT asg2-questions.pdf
 INPUT C:\Users\aryaa\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT C:\Users\aryaa\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr17.tfm
 INPUT C:\Users\aryaa\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-INPUT .\asg2-questions.toc
-INPUT asg2-questions.toc
-INPUT asg2-questions.toc
-INPUT C:\Users\aryaa\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-INPUT C:\Users\aryaa\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
-OUTPUT asg2-questions.toc
 INPUT C:\Users\aryaa\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT .\images\\part1_uml.png
 INPUT images\\part1_uml.png
@@ -125,6 +119,14 @@ INPUT .\images\\part1_uml.png
 INPUT .\images\\part1_uml.png
 INPUT .\images\\part1_uml.png
 INPUT .\images\\part1_uml.png
+INPUT C:\Users\aryaa\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT C:\Users\aryaa\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
+INPUT .\images\\part2_uml.png
+INPUT images\\part2_uml.png
+INPUT .\images\\part2_uml.png
+INPUT .\images\\part2_uml.png
+INPUT .\images\\part2_uml.png
+INPUT .\images\\part2_uml.png
 INPUT asg2-questions.aux
 INPUT C:\Users\aryaa\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Users\aryaa\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb

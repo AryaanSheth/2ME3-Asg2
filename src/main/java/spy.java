@@ -1,18 +1,42 @@
-public class spy<T> extends bitshift implements spyInterface{
+/**
+ * The type Spy.
+ *
+ * @param <T> the type parameter
+ */
+public class spy<T> extends bitshift implements spyInterface {
+    private static encryptionInterface encryption;
+    /**
+     * The State.
+     */
     boolean state;
+    /**
+     * The Base.
+     */
     fieldBase base;
+    /**
+     * The Key.
+     */
     int key;
 
 
-    // constructor
-    spy(fieldBase base){
+    /**
+     * Instantiates a new Spy.
+     *
+     * @param base the base
+     */
+// constructor
+    spy(fieldBase base) {
         state = true;
         this.base = base;
         getKey();
+        encryption = base.getEncryption();
         register();
     }
 
 
+    /**
+     * Gets key.
+     */
     void getKey() {
         key = base.getKey();
     }
@@ -26,29 +50,27 @@ public class spy<T> extends bitshift implements spyInterface{
 
     @Override
     public void register() {
-        if (state){
+        if (state) {
             base.addSpy(this);
-        }else{
+        } else {
             System.out.println("Cannot register dead spy");
         }
     }
-
 
 
     @Override
     public void sendMessage(Object target, String message) throws Exception {
         getKey(); // update key
         // send message to a specific instance of a field base
-        if (target instanceof homeBase){
+        if (target instanceof homeBase) {
             System.out.println("Sending message to Home Base");
-            ((homeBase) target).recieveMessage(encrypt(message, key));
+            ((homeBase<?>) target).receiveMessage(encryption.encrypt(message, base.getKey()));
         }
         // send message to a specific instance of a spy
-        else if (target instanceof fieldBaseInterface<?>){
+        else if (target instanceof fieldBaseInterface<?>) {
             System.out.println("Sending message to spy");
-            ((fieldBaseInterface) target).recieveMessage(encrypt(message, key));
-        }
-        else{
+            ((fieldBaseInterface<?>) target).recieveMessage(encryption.encrypt(message, base.getKey()));
+        } else {
             throw new Exception("Invalid target");
         }
     }
@@ -56,7 +78,7 @@ public class spy<T> extends bitshift implements spyInterface{
     @Override
     public void recieveMessage(String message) {
         getKey(); // update key
-        System.out.println("Recieved message: " + decrypt(message, key));
+        System.out.println("Recieved message: " + encryption.decrypt(message, base.getKey()));
     }
 
 }
