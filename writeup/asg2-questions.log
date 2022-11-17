@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.6)  16 NOV 2022 19:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.6)  17 NOV 2022 16:03
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -87,24 +87,24 @@ LaTeX Font Info:    External font `cmex10' loaded for size
  [1
 
 {C:/Users/aryaa/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}]
-<./images//part1_uml.png, id=7, 1907.125pt x 923.45pt>
+<./images//part1_uml.png, id=7, 921.4425pt x 405.61537pt>
 File: ./images//part1_uml.png Graphic file (type png)
 <use ./images//part1_uml.png>
 Package pdftex.def Info: ./images//part1_uml.png  used on input line 17.
-(pdftex.def)             Requested size: 476.78009pt x 230.86192pt.
+(pdftex.def)             Requested size: 460.72012pt x 202.80719pt.
 
-Overfull \hbox (86.78009pt too wide) in paragraph at lines 17--18
+Overfull \hbox (70.72012pt too wide) in paragraph at lines 17--18
 [] 
  []
 
 [2 <./images//part1_uml.png>] [3]
-<./images//part2_uml.png, id=17, 2067.725pt x 923.45pt>
+<./images//part2_uml.png, id=15, 2067.725pt x 892.33376pt>
 File: ./images//part2_uml.png Graphic file (type png)
 <use ./images//part2_uml.png>
 Package pdftex.def Info: ./images//part2_uml.png  used on input line 68.
-(pdftex.def)             Requested size: 496.26414pt x 221.63252pt.
+(pdftex.def)             Requested size: 454.90091pt x 196.31403pt.
 
-Overfull \hbox (106.26414pt too wide) in paragraph at lines 68--69
+Overfull \hbox (64.90091pt too wide) in paragraph at lines 68--69
 [] 
  []
 
@@ -112,15 +112,15 @@ Overfull \hbox (106.26414pt too wide) in paragraph at lines 68--69
 Here is how much of TeX's memory you used:
  1316 strings out of 477843
  22818 string characters out of 2823600
- 326339 words of memory out of 3000000
+ 325339 words of memory out of 3000000
  20280 multiletter control sequences out of 15000+600000
  472296 words of font info for 38 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  55i,6n,62p,254b,194s stack positions out of 10000i,1000n,20000p,200000b,80000s
 <C:/Users/aryaa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/aryaa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/aryaa/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on asg2-questions.pdf (5 pages, 261843 bytes).
+Output written on asg2-questions.pdf (5 pages, 224911 bytes).
 PDF statistics:
- 38 PDF objects out of 1000 (max. 8388607)
+ 37 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

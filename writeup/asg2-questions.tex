@@ -14,7 +14,7 @@
 
     \part{}
     \section*{UML Diagram of Design}
-        \includegraphics[scale=.25]{part1_uml}
+        \includegraphics[scale=0.5]{part1_uml}
 
     \section*{Design Patterns}
         \subsection*{Encryption}
@@ -65,12 +65,15 @@
 
     \part{}
     \section*{UML Diagram of New Design}
-        \includegraphics[scale=.24]{part2_uml}
+        \includegraphics[scale=.22]{part2_uml}
     
     \section*{Modification Of Program}
-        With the updated UML, the new encryption interface is an interface between the actual interface and the concrete
-        homeBase class. It extends the functionality of the current encryption logic and allows for the home base to be able to
-        multiple layers of encryption. This is done by updating the call methods in the homeBase to call the new 
-        encryption function which will give it access to adding multiple encryption layers using an ArrayList. 
-        
+        With the updated UML, a new chain encryptions class exists between the encryption interface and the homeBase. This class allows
+        for the homeBase to combine multiple encryption schemes together and apply them to the message. The constructor defines
+        two encryption schemes that are used to encrypt the message. The encrypt method then applies both of these encryption schemes
+        by implementing the encryption interface and overriding the encrypt and decrypt methods. This allows the chaining of 
+        encryption schemes to be done easily and without changing any previous code which ensures the open-close
+        principal isn't violated.
+    
+    
 \end{document}
