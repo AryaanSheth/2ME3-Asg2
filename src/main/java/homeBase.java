@@ -66,6 +66,7 @@ public class homeBase<T> {
      */
     public void setStrategy(encryptionInterface strategy) { // set encryption strategy
         encryption = strategy;
+        encryptions.add(strategy);
     }
 
     /**
