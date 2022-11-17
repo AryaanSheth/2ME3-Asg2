@@ -1,7 +1,10 @@
-public class CaesarCipher implements encryptionInterface{
+/**
+ * The type Caesar cipher.
+ */
+public class CaesarCipher implements encryptionInterface {
 
 
-    public String encrypt( String text, int key) {
+    public String encrypt(String text, int key) {
         // Caesar Cipher logic here
         return text;
     }

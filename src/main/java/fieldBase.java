@@ -1,71 +1,103 @@
 import java.util.ArrayList;
 
-public class fieldBase<T> extends bitshift implements fieldBaseInterface{
+/**
+ * The type Field base.
+ */
+public class fieldBase extends bitshift implements fieldBaseInterface {
+    private static encryptionInterface encryption;
+    private final ArrayList<spyInterface<?>> spy = new ArrayList<>();
+    /**
+     * The Key.
+     */
     int key;
-    private final ArrayList<spyInterface> spy = new ArrayList<>();
 
 
-
-    //constructor
-    fieldBase(){
+    /**
+     * Instantiates a new Field base.
+     */
+//constructor
+    fieldBase() {
         homeBase.getInstance().addFieldBase(this);
         getKey();
+
     }
 
 
-
+    /**
+     * Gets key.
+     *
+     * @return the key
+     */
     public int getKey() {
         key = homeBase.getInstance().getKey();
         return key;
+
     }
 
+    /**
+     * Gets encryption.
+     *
+     * @return the encryption
+     */
+    public encryptionInterface getEncryption() {
+        encryption = homeBase.getInstance().getEncryption();
+        return encryption;
+    }
 
 
     @Override
     public void goDark() {
-        System.out.println("Going dark");
-        // remove from homeBase arrayList
         homeBase.getInstance().removeFieldBase(this);
     }
+
     @Override
     public void goLive() {
-        System.out.println("Going live");
-        // add to homeBase arrayList
         homeBase.getInstance().addFieldBase(this);
     }
 
 
-
     @Override
-    public void recieveMessage(String message) {
-        getKey(); // update key
-        System.out.println("Recieved message: " + decrypt(message, key));
-    }
-
-    @Override
-    public void sendMessage(Object target, String message) throws Exception{
+    public void sendMessage(Object target, String message) throws Exception {
         // send message to a specific instance of a field base
-        getKey(); // update key
-        if (target instanceof homeBase){
-            System.out.println("Sending message to Home Base");
-            ((homeBase<?>) target).recieveMessage(encrypt(message, key));
+        if (target instanceof homeBase) {
+            ((homeBase<?>) target).receiveMessage(encryption.encrypt(message, getKey()));
         }
         // send message to a specific instance of a spy
-        else if (target instanceof spyInterface){
-            System.out.println("Sending message to spy");
-            ((spyInterface<?>) target).recieveMessage(encrypt(message, key));
-        }
-        else{
+        else if (target instanceof spyInterface) {
+            ((spyInterface<?>) target).recieveMessage(encryption.encrypt(message, getKey()));
+        } else {
             throw new Exception("Invalid target");
         }
     }
 
+    @Override
+    public void recieveMessage(String message) {
+        getKey(); // update key
+        System.out.println("Received message: " + encryption.decrypt(message, key));
+    }
 
+    /**
+     * Add spy.
+     *
+     * @param spy the spy
+     */
+// all spies registered with this field base
+    public void addSpy(spyInterface<?> spy) {
+        this.spy.add(spy);
+    }
 
-    // all spies registered with this field base
-    public void addSpy(spyInterface spy) {this.spy.add(spy);}
-    public void removeSpy(spyInterface spy) {this.spy.remove(spy);}
-    public int getNumSpies() {return spy.size();}
+    /**
+     * Remove spy.
+     *
+     * @param spy the spy
+     */
+    public void removeSpy(spyInterface<?> spy) {
+        this.spy.remove(spy);
+    }
+
+    public int getNumSpies() {
+        return spy.size();
+    }
 
 
 }

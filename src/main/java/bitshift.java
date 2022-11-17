@@ -3,7 +3,7 @@
  */
 public class bitshift implements encryptionInterface {
 
-    public String encrypt( String text, int key) {
+    public String encrypt(String text, int key) {
         // bitshift logic here
         return text;
     }
