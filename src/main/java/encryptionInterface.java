@@ -2,6 +2,7 @@
  * The interface Encryption interface.
  */
 public interface encryptionInterface {
+   // stratagy pattern for encryption
 
     /**
      * Encrypt string.

@@ -10,18 +10,19 @@ public class homeBase<T> {
     private static encryptionInterface encryption;
     private final ArrayList<fieldBaseInterface<T>> fieldBases = new ArrayList<>(); // list of field bases
     private int key;
+    private final ArrayList<encryptionInterface> encryptions = new ArrayList<>(); // list of encryption's
 
     /**
      * Gets instance.
      *
      * @return the instance
      */
-    public static homeBase getInstance() {
+    public static homeBase<?> getInstance() {
         if (instance == null) {
             System.out.println("Creating New Home Base");
             instance = new homeBase();
-            setKey(0); // default key
-            encryption = new bitshift(); // default encryption
+            instance.setKey(0); // default key
+            instance.setStrategy(new bitshift()); // default encryption
         }
         return instance;
     }
@@ -63,12 +64,8 @@ public class homeBase<T> {
      *
      * @param strategy the strategy
      */
-    public void setStrategy(String strategy) { // set encryption strategy
-        switch (strategy) {
-            case "CaesarCipher" -> encryption = new CaesarCipher();
-            case "bitshift" -> encryption = new bitshift();
-            default -> System.out.println("Invalid Strategy");
-        }
+    public void setStrategy(encryptionInterface strategy) { // set encryption strategy
+        encryption = strategy;
     }
 
     /**
@@ -93,12 +90,12 @@ public class homeBase<T> {
         if (target instanceof fieldBaseInterface) { // for each field base in the list
             System.out.println("Sending message to field base");
             // send the current scheme and key to the field
-            ((fieldBaseInterface<T>) target).recieveMessage(encryption.encrypt(message, getKey()));
+            ((fieldBaseInterface<?>) target).recieveMessage(encryption.encrypt(message, getKey()));
         }
         // send message to a specific instance of a spy
         else if (target instanceof spyInterface) {
             System.out.println("Sending message to spy");
-            ((spyInterface<T>) target).recieveMessage(encryption.decrypt(message, getKey()));
+            ((spyInterface<?>) target).recieveMessage(encryption.decrypt(message, getKey()));
         } else {
             throw new Exception("Invalid target");
         }
@@ -111,7 +108,7 @@ public class homeBase<T> {
      * @param message the message
      */
     public void receiveMessage(String message) {
-        System.out.println("Recieved message: " + encryption.decrypt(message, getKey()));
+        System.out.println("Received message: " + encryption.decrypt(message, getKey()));
     }
 
 
